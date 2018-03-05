@@ -1,0 +1,10 @@
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Business\bin\Debug\Nicholas.Smart.Materials.Business.dll
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Business\bin\Debug\Nicholas.Smart.Materials.Business.pdb
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Business\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Business\bin\Debug\NPOI.dll
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Business\bin\Debug\NPOI.xml
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Business\obj\Debug\Nicholas.Smart.Materials.Business.dll
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Business\obj\Debug\Nicholas.Smart.Materials.Business.pdb
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Business\obj\Debug\Nicholas.Smart.Materials.Business.csprojResolveAssemblyReference.cache
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Business\bin\Debug\Nicholas.Smart.Materials.Enity.dll
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Business\bin\Debug\Nicholas.Smart.Materials.Enity.pdb

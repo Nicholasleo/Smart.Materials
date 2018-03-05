@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SystemConfig>
+  <Deviation1>100</Deviation1>
+  <Deviation2>100</Deviation2>
+  <Deviation3>200</Deviation3>
+  <Deviation4>100</Deviation4>
+  <Deviation5>200</Deviation5>
+  <Width>1000</Width>
+</SystemConfig>

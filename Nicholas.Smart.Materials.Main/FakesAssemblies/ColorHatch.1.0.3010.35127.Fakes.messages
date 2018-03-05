@@ -1,0 +1,2 @@
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Main\Fakes\ColorHatch.fakes : warning : 无法为 ColorHatch.ColorChangedEventArgs 生成存根: 类型已密封。
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Main\Fakes\ColorHatch.fakes : warning : 无法为 ColorHatch.ColorHatch+ColorChangedEventHandler 生成填充码: 类型是一个委托。

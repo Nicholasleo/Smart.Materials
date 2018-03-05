@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicholas.Smart.Materials.DAL", "Nicholas.Smart.Materials.DAL\Nicholas.Smart.Materials.DAL.csproj", "{15209651-4930-44A5-A19C-5FD7EEC69FA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicholas.Smart.Materials.BLL", "Nicholas.Smart.Materials.BLL\Nicholas.Smart.Materials.BLL.csproj", "{812804CA-A105-4EA1-8E95-188DDF42BFA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicholas.Smart.Materials.Main", "Nicholas.Smart.Materials.Main\Nicholas.Smart.Materials.Main.csproj", "{915ACDAF-E8E6-426A-A0C4-946F728BEDCE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{14D43345-A87D-499B-8B3E-6A8DE3809E3B} = {14D43345-A87D-499B-8B3E-6A8DE3809E3B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicholas.Smart.Materials.Version", "Nicholas.Smart.MaterialsVersion\Nicholas.Smart.Materials.Version.csproj", "{66C103D6-0239-4E1C-951D-5410799EF995}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicholas.Smart.Materials.Enity", "Nicholas.Smart.Materials.Enity\Nicholas.Smart.Materials.Enity.csproj", "{81033A53-1FE6-4B5D-9204-98B1880A7742}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicholas.Smart.Materials.Business", "Nicholas.Smart.Materials.Business\Nicholas.Smart.Materials.Business.csproj", "{A50220CE-D4B6-4109-910F-D3FE0F181AA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLL", "DLL", "{22806C2A-9926-41ED-A593-09F2DE7EF516}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\Administrator.PC-20160913UKBP\Desktop\CAD\acdbmgd.dll = C:\Users\Administrator.PC-20160913UKBP\Desktop\CAD\acdbmgd.dll
+		C:\Users\Administrator.PC-20160913UKBP\Desktop\CAD\acmgd.dll = C:\Users\Administrator.PC-20160913UKBP\Desktop\CAD\acmgd.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicholas.Smart.Materials.Reg", "Nicholas.Smart.Materials.Reg\Nicholas.Smart.Materials.Reg.csproj", "{14D43345-A87D-499B-8B3E-6A8DE3809E3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15209651-4930-44A5-A19C-5FD7EEC69FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15209651-4930-44A5-A19C-5FD7EEC69FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15209651-4930-44A5-A19C-5FD7EEC69FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15209651-4930-44A5-A19C-5FD7EEC69FA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{812804CA-A105-4EA1-8E95-188DDF42BFA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{812804CA-A105-4EA1-8E95-188DDF42BFA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{812804CA-A105-4EA1-8E95-188DDF42BFA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{812804CA-A105-4EA1-8E95-188DDF42BFA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{915ACDAF-E8E6-426A-A0C4-946F728BEDCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{915ACDAF-E8E6-426A-A0C4-946F728BEDCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{915ACDAF-E8E6-426A-A0C4-946F728BEDCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{915ACDAF-E8E6-426A-A0C4-946F728BEDCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66C103D6-0239-4E1C-951D-5410799EF995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66C103D6-0239-4E1C-951D-5410799EF995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66C103D6-0239-4E1C-951D-5410799EF995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66C103D6-0239-4E1C-951D-5410799EF995}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81033A53-1FE6-4B5D-9204-98B1880A7742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81033A53-1FE6-4B5D-9204-98B1880A7742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81033A53-1FE6-4B5D-9204-98B1880A7742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81033A53-1FE6-4B5D-9204-98B1880A7742}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A50220CE-D4B6-4109-910F-D3FE0F181AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A50220CE-D4B6-4109-910F-D3FE0F181AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A50220CE-D4B6-4109-910F-D3FE0F181AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A50220CE-D4B6-4109-910F-D3FE0F181AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14D43345-A87D-499B-8B3E-6A8DE3809E3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14D43345-A87D-499B-8B3E-6A8DE3809E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14D43345-A87D-499B-8B3E-6A8DE3809E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14D43345-A87D-499B-8B3E-6A8DE3809E3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

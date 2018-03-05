@@ -1,0 +1,7 @@
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.DAL\bin\Debug\Nicholas.Smart.Materials.DAL.dll
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.DAL\bin\Debug\Nicholas.Smart.Materials.DAL.pdb
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.DAL\bin\Debug\Nicholas.Smart.Materials.Enity.dll
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.DAL\bin\Debug\Nicholas.Smart.Materials.Enity.pdb
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.DAL\obj\Debug\Nicholas.Smart.Materials.DAL.csprojResolveAssemblyReference.cache
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.DAL\obj\Debug\Nicholas.Smart.Materials.DAL.dll
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.DAL\obj\Debug\Nicholas.Smart.Materials.DAL.pdb
