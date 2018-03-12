@@ -1,2 +1,2 @@
 # Smart.Materials
-自动排料系统
+Automatic discharging system
