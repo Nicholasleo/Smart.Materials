@@ -1,9 +1,0 @@
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.BLL\bin\Debug\Nicholas.Smart.Materials.BLL.dll
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.BLL\bin\Debug\Nicholas.Smart.Materials.BLL.pdb
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.BLL\bin\Debug\Nicholas.Smart.Materials.DAL.dll
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.BLL\bin\Debug\Nicholas.Smart.Materials.Enity.dll
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.BLL\bin\Debug\Nicholas.Smart.Materials.DAL.pdb
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.BLL\bin\Debug\Nicholas.Smart.Materials.Enity.pdb
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.BLL\obj\Debug\Nicholas.Smart.Materials.BLL.csprojResolveAssemblyReference.cache
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.BLL\obj\Debug\Nicholas.Smart.Materials.BLL.dll
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.BLL\obj\Debug\Nicholas.Smart.Materials.BLL.pdb

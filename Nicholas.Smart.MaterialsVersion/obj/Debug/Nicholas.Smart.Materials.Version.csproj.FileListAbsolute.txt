@@ -1,4 +1,0 @@
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.MaterialsVersion\bin\Debug\Nicholas.Smart.MaterialsVersion.dll
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.MaterialsVersion\bin\Debug\Nicholas.Smart.MaterialsVersion.pdb
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.MaterialsVersion\obj\Debug\Nicholas.Smart.MaterialsVersion.dll
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.MaterialsVersion\obj\Debug\Nicholas.Smart.MaterialsVersion.pdb
