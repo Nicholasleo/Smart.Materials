@@ -6,7 +6,6 @@ E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Reg\bin\Debug\N
 E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Reg\bin\Debug\Nicholas.Smart.Materials.Enity.pdb
 E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Reg\bin\Debug\NPOI.xml
 E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Reg\obj\Debug\Nicholas.Smart.Materials.Reg.csprojResolveAssemblyReference.cache
-E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Reg\obj\Debug\Nicholas.Smart.Materials.Reg.Form1.resources
 E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Reg\obj\Debug\Nicholas.Smart.Materials.Reg.Properties.Resources.resources
 E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Reg\obj\Debug\Nicholas.Smart.Materials.Reg.csproj.GenerateResource.Cache
 E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Reg\bin\Debug\PiEncrypt.dll
@@ -18,3 +17,4 @@ E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Reg\bin\Debug\�
 E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Reg\obj\Debug\软件授权文件生成工具.exe
 E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Reg\obj\Debug\软件授权文件生成工具.pdb
 E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Reg\obj\Debug\Nicholas.Smart.Materials.Reg.FrmTest.resources
+E:\NicholasLeo\Nicholas.Smart.Materials\Nicholas.Smart.Materials.Reg\obj\Debug\Nicholas.Smart.Materials.Reg.FrmReg.resources

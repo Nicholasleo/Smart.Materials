@@ -13,7 +13,7 @@ namespace Nicholas.Smart.Materials.Business
        
         public static string AesLocalKey = AES.AesEncrypt(LocalKey, "NicholasLeo", "13158985896zhuzc");
 
-        public static string RegPath = AppDomain.CurrentDomain.BaseDirectory + "SoftReg.xml";
+        public static string RegPath = AppDomain.CurrentDomain.BaseDirectory + "SoftReg.leo";
 
 
         public static string GetSoftRegFlg()
@@ -22,7 +22,7 @@ namespace Nicholas.Smart.Materials.Business
             try
             {
                 fl = RegisterClass.GetItemValue("Leo");
-                if(fl == null)
+                if(fl == null || string.IsNullOrEmpty(fl))
                     fl = "U3OtiHLdjoM=";
             }
             catch (Exception ex)

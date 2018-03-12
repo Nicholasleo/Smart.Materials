@@ -40,7 +40,7 @@ namespace Nicholas.Smart.Materials.Business
             try
             {
                 List<Ent2> newList = GetNewList(list);
-                newList = newList.OrderByDescending(s => s.MyEnt.Length).ThenByDescending(s => s.MyEnt.Area).ToList();
+                newList = newList.OrderByDescending(s=>s.MyEnt.Depth).ThenByDescending(s => s.MyEnt.Length).ThenByDescending(s => s.MyEnt.Area).ToList();
                 int total = 0;
                 //剔除单个类型的型材可以满足一张板的型材
                 foreach (var item in newList)
@@ -64,11 +64,16 @@ namespace Nicholas.Smart.Materials.Business
                     return resultList;
                 int listIndex = 1;
                 int listCount = newList.Count;
+                string depth = string.Empty;
                 foreach (var item in newList)
                 {
+                    if (string.IsNullOrEmpty(depth))
+                        depth = item.MyEnt.Depth;
                     if(_hasKey.Contains(item.Key))
                         continue;
                     if(item.MyEnt.Qty <= 0)
+                        continue;
+                    if(depth != item.MyEnt.Depth)
                         continue;
                     int tempQty = item.MyEnt.Qty;
                     for (int i = 1; i <= tempQty; i++)
@@ -79,6 +84,7 @@ namespace Nicholas.Smart.Materials.Business
                             Ent1 tEnt = new Ent1();
                             tEnt.Length = item.MyEnt.Length;
                             tEnt.Area = item.MyEnt.Area;
+                            tEnt.Depth = item.MyEnt.Depth;
                             tEnt.Qty = i;
 
                             Ent2 tEnt2 = new Ent2();
@@ -98,6 +104,7 @@ namespace Nicholas.Smart.Materials.Business
                             tEnt.Length = item.MyEnt.Length;
                             tEnt.Area = item.MyEnt.Area;
                             tEnt.Qty = item.MyEnt.Qty;
+                            tEnt.Depth = item.MyEnt.Depth;
 
                             Ent2 tEnt2 = new Ent2();
                             tEnt2.Key = "BC" + _index;
@@ -112,6 +119,7 @@ namespace Nicholas.Smart.Materials.Business
                             tEnt.Length = item.MyEnt.Length;
                             tEnt.Area = item.MyEnt.Area;
                             tEnt.Qty = i;
+                            tEnt.Depth = item.MyEnt.Depth;
 
                             Ent2 tEnt2 = new Ent2();
                             tEnt2.Key = "BC" + _index;
@@ -130,6 +138,7 @@ namespace Nicholas.Smart.Materials.Business
                                 Ent1 tEnt = new Ent1();
                                 tEnt.Length = item.MyEnt.Length;
                                 tEnt.Area = item.MyEnt.Area;
+                                tEnt.Depth = item.MyEnt.Depth;
                                 tEnt.Qty = (i - 1);
 
                                 Ent2 tEnt2 = new Ent2();
@@ -148,6 +157,7 @@ namespace Nicholas.Smart.Materials.Business
                                 Ent1 tEnt = new Ent1();
                                 tEnt.Length = item.MyEnt.Length;
                                 tEnt.Area = item.MyEnt.Area;
+                                tEnt.Depth = item.MyEnt.Depth;
                                 tEnt.Qty = (i - 1);
 
                                 Ent2 tEnt2 = new Ent2();

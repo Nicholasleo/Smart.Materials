@@ -19,6 +19,7 @@ namespace Nicholas.Smart.Materials.Enity
         public int Qty { get; set; }
 
         public int Area { get; set; }
+        public string Depth { get; set; }
     }
 
     public class Ent2

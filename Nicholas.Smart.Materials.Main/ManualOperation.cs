@@ -23,65 +23,6 @@ namespace Nicholas.Smart.Materials.Main
         private int _MinArea = 600;
 
         private Thread thread;
-        #region MyRegion
-
-        //private BackgroundWorker bkWorker = new BackgroundWorker();
-        //private FrmWaitting frmWait = new FrmWaitting();
-
-        //private void InitC()
-        //{
-        //    bkWorker.WorkerReportsProgress = true;
-        //    bkWorker.WorkerSupportsCancellation = true;
-        //    bkWorker.DoWork += new DoWorkEventHandler(DoWork);
-        //    bkWorker.ProgressChanged += new ProgressChangedEventHandler(ProgessChanged);
-        //    bkWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(CompleteWork);
-        //}
-
-        //public void DoWork(object sender, DoWorkEventArgs e)
-        //{
-        //    // 事件处理，指定处理函数  
-        //    result = CountList(entList);
-        //    e.Result = ProcessProgress(bkWorker, e);
-        //}
-
-        //public void ProgessChanged(object sender, ProgressChangedEventArgs e)
-        //{
-        //    // bkWorker.ReportProgress 会调用到这里，此处可以进行自定义报告方式  
-        //    frmWait.SetNotifyInfo(e.ProgressPercentage, "处理进度:" + Convert.ToString(e.ProgressPercentage) + "%");
-        //}
-
-        //public void CompleteWork(object sender, RunWorkerCompletedEventArgs e)
-        //{
-        //    frmWait.Close();
-        //    MessageBox.Show(@"处理完毕!");
-        //}
-
-        //private int ProcessProgress(object sender, DoWorkEventArgs e)
-        //{
-        //    for (int i = 0; i <= 1000; i++)
-        //    {
-        //        if (bkWorker.CancellationPending)
-        //        {
-        //            e.Cancel = true;
-        //            return -1;
-        //        }
-        //        else
-        //        {
-        //            // 状态报告  
-        //            bkWorker.ReportProgress(i / 10);
-
-        //            // 等待，用于UI刷新界面，很重要  
-        //            System.Threading.Thread.Sleep(1);
-        //        }
-        //    }
-
-        //    return -1;
-        //}
-        ///// <summary>  
-        ///// 步进值  
-        ///// </summary>  
-        //private int percentValue = 0; 
-        #endregion
 
         private void CheckReg()
         {
@@ -111,6 +52,7 @@ namespace Nicholas.Smart.Materials.Main
             }
         }
 
+
         private void tsbOk_Click(object sender, EventArgs e)
         {
             #if !DEBUG
@@ -137,9 +79,11 @@ namespace Nicholas.Smart.Materials.Main
                     int.TryParse(dgvSource.Rows[i].Cells["Length"].Value == null ? "0" : dgvSource.Rows[i].Cells["Length"].Value.ToString(), out length);
                     int.TryParse(dgvSource.Rows[i].Cells["Qty"].Value == null ? "0" : dgvSource.Rows[i].Cells["Qty"].Value.ToString(), out qty);
                     int.TryParse(dgvSource.Rows[i].Cells["Area"].Value == null ? "0" : dgvSource.Rows[i].Cells["Area"].Value.ToString(), out area);
+                    string depth = Convert.ToString(dgvSource.Rows[i].Cells["Depth"].Value);
                     ent1.Length = length;
                     ent1.Area = area;
                     ent1.Qty = qty;
+                    ent1.Depth = depth;
                     if (length + area + qty == 0)
                         continue;
                     entList.Add(ent1);
@@ -188,6 +132,12 @@ namespace Nicholas.Smart.Materials.Main
             //    dt.Rows.Add(newRow);
             //    //lbView.Items.Add(ent2.MainKey + ":" + ent2.MyEnt.Length + "_" + ent2.MyEnt.Qty + "条" + "_" + ent2.MyEnt.Area);
             //}
+            if(ResultTable.Rows.Count <= 0)
+                return;
+            foreach (DataRow row in ResultTable.Rows)
+            {
+                row["Key1"] = AppDomain.CurrentDomain.BaseDirectory + "MaterialsImg\\" + row["Area"] + ".png";
+            }
             var frm = new FrmResult(ResultTable);
             frm.ShowDialog();
             frm.Dispose();
@@ -205,9 +155,17 @@ namespace Nicholas.Smart.Materials.Main
         {
 #if DEBUG
 #endif
-
+            if (thread != null && thread.IsAlive)
+            {
+                thread.Abort();
+            }
             //result = CountList(entList);
-            result = MaterialsBacktrack.CountList(entList);
+            thread = new Thread(() =>
+            {
+                result = MaterialsBacktrack.CountList(entList);
+            });
+            thread.Start();
+            thread.Join();
             if (result.Count < 0)
                 return;
             ResultTable.Clear();

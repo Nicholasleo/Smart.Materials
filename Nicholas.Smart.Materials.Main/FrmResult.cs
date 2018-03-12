@@ -10,7 +10,7 @@ using Microsoft.Reporting.WinForms;
 
 namespace Nicholas.Smart.Materials.Main
 {
-    public partial class FrmResult : FrmBase
+    public partial class FrmResult : FrmBaseDev
     {
         private DataTable _dt = null;
         public FrmResult(DataTable dt)
@@ -18,7 +18,6 @@ namespace Nicholas.Smart.Materials.Main
             InitializeComponent();
             
             this.WindowState = FormWindowState.Maximized;
-            this.baseTool2.Visible = false;
             this._dt = dt;
         }
 

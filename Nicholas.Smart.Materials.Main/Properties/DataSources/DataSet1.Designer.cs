@@ -289,6 +289,8 @@ namespace Nicholas.Smart.Materials.Main.Properties.DataSources {
             
             private global::System.Data.DataColumn columnAreaSum;
             
+            private global::System.Data.DataColumn columnDepth;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ResultDataDataTable() {
@@ -364,6 +366,14 @@ namespace Nicholas.Smart.Materials.Main.Properties.DataSources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DepthColumn {
+                get {
+                    return this.columnDepth;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -399,14 +409,15 @@ namespace Nicholas.Smart.Materials.Main.Properties.DataSources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ResultDataRow AddResultDataRow(string Key, int Length, int Qty, int Area, int AreaSum) {
+            public ResultDataRow AddResultDataRow(string Key, int Length, int Qty, int Area, int AreaSum, string Depth) {
                 ResultDataRow rowResultDataRow = ((ResultDataRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Key,
                         Length,
                         Qty,
                         Area,
-                        AreaSum};
+                        AreaSum,
+                        Depth};
                 rowResultDataRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowResultDataRow);
                 return rowResultDataRow;
@@ -434,6 +445,7 @@ namespace Nicholas.Smart.Materials.Main.Properties.DataSources {
                 this.columnQty = base.Columns["Qty"];
                 this.columnArea = base.Columns["Area"];
                 this.columnAreaSum = base.Columns["AreaSum"];
+                this.columnDepth = base.Columns["Depth"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -449,6 +461,8 @@ namespace Nicholas.Smart.Materials.Main.Properties.DataSources {
                 base.Columns.Add(this.columnArea);
                 this.columnAreaSum = new global::System.Data.DataColumn("AreaSum", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAreaSum);
+                this.columnDepth = new global::System.Data.DataColumn("Depth", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDepth);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -671,6 +685,22 @@ namespace Nicholas.Smart.Materials.Main.Properties.DataSources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Depth {
+                get {
+                    try {
+                        return ((string)(this[this.tableResultData.DepthColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“ResultData”中列“Depth”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableResultData.DepthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsKeyNull() {
                 return this.IsNull(this.tableResultData.KeyColumn);
             }
@@ -727,6 +757,18 @@ namespace Nicholas.Smart.Materials.Main.Properties.DataSources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAreaSumNull() {
                 this[this.tableResultData.AreaSumColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDepthNull() {
+                return this.IsNull(this.tableResultData.DepthColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDepthNull() {
+                this[this.tableResultData.DepthColumn] = global::System.Convert.DBNull;
             }
         }
         

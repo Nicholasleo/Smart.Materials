@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using System.Xml;
-using Nicholas.Smart.Materials.BLL;
 using Nicholas.Smart.Materials.Business;
 using Nicholas.Smart.Materials.Enity;
 using Nicholas.Smart.Materials.Main.Edit;
@@ -24,9 +21,7 @@ namespace Nicholas.Smart.Materials.Main
         public FrmMain()
         {
             InitializeComponent();
-            pageMain.Parent = null;
             pageMaterial.Parent = null;
-            pageOperator.Parent = null;
             pageHand.Parent = tclMain;
             GetConfig();
             this.Width = Screen.PrimaryScreen.Bounds.Width - 300;
@@ -37,7 +32,6 @@ namespace Nicholas.Smart.Materials.Main
             this.lbSettingInfo.Text = @"当前系统计算的板宽为：【" + _area + @"mm】";
         }
 
-        
 
         protected override void OnShown(EventArgs e)
         {
@@ -76,6 +70,7 @@ namespace Nicholas.Smart.Materials.Main
             }
         }
 
+
         private void FrmMain_Load(object sender, EventArgs e)
         {
             if (!File.Exists(imageConfig))
@@ -92,20 +87,20 @@ namespace Nicholas.Smart.Materials.Main
 
             if (CheckRegInfo.GetSoftRegFlg() == "NO")
             {
-                this.tslbTime.Text = string.Format(@"【软件未注册可免费使用10次，当前已使用（{0}）次】", CheckRegInfo.GetLoginTimes());
-                this.tslbTime.ForeColor = Color.Red;
+                this.lbVersion.Text = string.Format(@"【软件未注册可免费使用10次，当前已使用（{0}）次】", CheckRegInfo.GetLoginTimes());
+                this.lbVersion.ForeColor = Color.Red;
             }
             else
             {
-                this.tslbTime.Text = string.Format(@"【软件已注册,当前版本为：V{0}】", version);
-                this.tslbTime.ForeColor = Color.Blue;
+                this.lbVersion.Text = string.Format(@"【软件已注册,当前版本为：V{0}】", version);
+                this.lbVersion.ForeColor = Color.Blue;
             }
 
 #if DEBUG
-            this.tslbTime.Text = string.Format(@"【测试版本V{0}】",version);
-            this.tslbTime.ForeColor = Color.Red;
+            this.lbVersion.Text = string.Format(@"【测试版本V{0}】", version);
+            this.lbVersion.ForeColor = Color.Red;
 #endif
-            this.tsslSystemInfo.Text = @"软件使用过程中如遇到问题请联系：188-1886-8351或152-5156-5559。";
+            this.tsslSystemInfo.Text = @"工业和信息化部备案号【粤ICP备11065058】";
 
             DataColumn dc = new DataColumn();
             dc.Caption = "材料长度";
@@ -121,6 +116,11 @@ namespace Nicholas.Smart.Materials.Main
             dc.Caption = "材料展开面积";
             dc.ColumnName = "Area";
             dc.DataType = Type.GetType("System.Int32");
+            dtSource.Columns.Add(dc);
+            dc = new DataColumn();
+            dc.Caption = "型材厚度";
+            dc.ColumnName = "Depth";
+            dc.DataType = Type.GetType("System.String");
             dtSource.Columns.Add(dc);
 #if DEBUG
             DataRow newRow;
@@ -305,10 +305,10 @@ namespace Nicholas.Smart.Materials.Main
             {
                 dgvSource.Columns["Area"].HeaderText = @"型材面积";
             }
-        }
-        private void tsbMin_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
+            if (dgvSource.Columns.Contains("Depth"))
+            {
+                dgvSource.Columns["Depth"].HeaderText = @"型材厚度";
+            }
         }
 
         private void tsbExit_Click(object sender, EventArgs e)
@@ -328,8 +328,6 @@ namespace Nicholas.Smart.Materials.Main
         {
             pageMaterial.Parent = null;
             pageHand.Parent = null;
-            pageOperator.Parent = tclMain;
-            tclMain.SelectTab(pageOperator);
         }
 
 
@@ -337,7 +335,11 @@ namespace Nicholas.Smart.Materials.Main
 
         private void btnMaterials_Click(object sender, EventArgs e)
         {
-            pageOperator.Parent = null;
+            if (!File.Exists(imageConfig))
+            {
+                XmlHelper.CreateImageXml(imageConfig);
+                PiEncryptHelper.EncFile(imageConfig);
+            }
             pageHand.Parent = null;
             pageMaterial.Parent = tclMain;
             tclMain.SelectTab(pageMaterial);
@@ -347,24 +349,26 @@ namespace Nicholas.Smart.Materials.Main
             }
             MaterialsNode mNode = new MaterialsNode();
             mNode.RNode = "Materials";
-
             List<MaterialsData> list = XmlHelper.GetXmlData(imageConfig,mNode);
 
             PiEncryptHelper.EncFile(imageConfig);
-            if(list.Count>0)
-                BindDgvMain(list);
+            BindDgvMain(list);
+                
         }
 
         private void BindDgvMain(List<MaterialsData> list)
         {
             dgvMain.Rows.Clear();
             dgvMain.DataSource = null;
-            dgvMain.Rows.Add(list.Count);
-            for (int i = 0; i < list.Count; i++)
+            if (list.Count > 0)
             {
-                dgvMain.Rows[i].Cells[0].Value = list[i].Area;
-                dgvMain.Rows[i].Cells[1].Value = list[i].Path;
-                dgvMain.Rows[i].Cells[2].Value = GetImage(list[i].Path);
+                dgvMain.Rows.Add(list.Count);
+                for (int i = 0; i < list.Count; i++)
+                {
+                    dgvMain.Rows[i].Cells[0].Value = list[i].Area;
+                    dgvMain.Rows[i].Cells[1].Value = list[i].Path;
+                    dgvMain.Rows[i].Cells[2].Value = GetImage(list[i].Path);
+                }
             }
         }
 
@@ -410,7 +414,7 @@ namespace Nicholas.Smart.Materials.Main
                 if (DialogResult.Yes ==
                     MessageBox.Show(@"是否删除选中的型材数据？", @"提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
                 {
-                    string key = dgvMain.CurrentRow.Cells["Area"].Value.ToString();
+                    string key = dgvMain.CurrentRow.Cells[0].Value.ToString();
                     MaterialsNode mNode = new MaterialsNode();
                     mNode.RNode = "Materials";
                     mNode.PNodeAttr = "key";
@@ -422,7 +426,7 @@ namespace Nicholas.Smart.Materials.Main
                     XmlHelper.Delete(imageConfig,mNode);
                     PiEncryptHelper.EncFile(imageConfig);
                     //XmlHelper.Delete(AppDomain.CurrentDomain.BaseDirectory + "ImageConfig.xml","/Key_"+key,"");
-                    string path = dgvMain.CurrentRow.Cells["Path"].Value.ToString();
+                    string path = dgvMain.CurrentRow.Cells[1].Value.ToString();
                     if (File.Exists(path))
                     {
                         File.Delete(path);
@@ -470,34 +474,15 @@ namespace Nicholas.Smart.Materials.Main
             }
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.InitialDirectory = "c:\\";//注意这里写路径时要用c:\\而不是c:\
-            ofd.Filter = @"CAD文件|*.dwg|所有文件|*.*";
-            ofd.RestoreDirectory = true;
-            ofd.FilterIndex = 1;
-            string fName = string.Empty;
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                fName = ofd.FileName;
-                txtFile.Text = fName;
-            }
-        }
-
         private void btnAbout_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-        }
         
         private void btnHand_Click(object sender, EventArgs e)
         {
             pageMaterial.Parent = null;
-            pageOperator.Parent = null;
             pageHand.Parent = tclMain;
             tclMain.SelectTab(pageHand);
         }
@@ -592,6 +577,12 @@ namespace Nicholas.Smart.Materials.Main
         {
             try
             {
+                if (!File.Exists(imageConfig))
+                {
+                    XmlHelper.CreateImageXml(imageConfig);
+                    PiEncryptHelper.EncFile(imageConfig);
+                }
+
                 if (PiEncryptHelper.IsFileEnc(imageConfig, ref nKeyID)) ;
                 {
                     PiEncryptHelper.DecFile(imageConfig);
@@ -1014,6 +1005,26 @@ namespace Nicholas.Smart.Materials.Main
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, @"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void tsbClearAll_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes ==
+                MessageBox.Show(@"是否清空所以已存在的型材？", @"提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+            {
+                if (File.Exists(imageConfig))
+                {
+                    File.Delete(imageConfig);
+                }
+
+                string[] files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "MaterialsImg");
+                foreach (var file in files)
+                {
+                    File.Delete(file);
+                }
+                MessageBox.Show(@"清除成功！"); 
+                btnMaterials_Click(null, null);
             }
         }
 
