@@ -18,6 +18,7 @@ using DevExpress.XtraRichEdit.API.Word;
 using Nicholas.Smart.Materials.Business;
 using Nicholas.Smart.Materials.Enity;
 using Nicholas.Smart.Materials.Main.ControlDef;
+using Nicholas.Smart.Materials.Main.Properties;
 
 namespace Nicholas.Smart.Materials.Main.Bussiness
 {
@@ -38,7 +39,16 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
             btnAdd.Caption = @"开始计算";
             btnEdit.Caption = @"打印结果";
             btnImport.Visibility = BarItemVisibility.Never;
+            //btnImport.Caption = @"导入计算数据";
             dgvSource.KeyDown += dgvSource_KeyDown;
+
+            //var batchImport = new BarButtonItem
+            //{
+            //    Caption = @"批量启用/禁用",
+            //    CausesValidation = true,
+            //    Glyph = Resources.,
+            //    PaintStyle = BarItemPaintStyle.CaptionGlyph
+            //};
 
         }
 

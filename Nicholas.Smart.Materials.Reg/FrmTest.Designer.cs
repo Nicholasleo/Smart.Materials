@@ -43,6 +43,11 @@
             this.lbTime = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnRequest = new System.Windows.Forms.Button();
+            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbResult = new System.Windows.Forms.Label();
+            this.txtResult = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -166,11 +171,59 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "label4";
             // 
+            // btnRequest
+            // 
+            this.btnRequest.Location = new System.Drawing.Point(467, 98);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(75, 23);
+            this.btnRequest.TabIndex = 13;
+            this.btnRequest.Text = "获取数据";
+            this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
+            // 
+            // txtUrl
+            // 
+            this.txtUrl.Location = new System.Drawing.Point(500, 72);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(266, 21);
+            this.txtUrl.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(465, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "url:";
+            // 
+            // lbResult
+            // 
+            this.lbResult.AutoSize = true;
+            this.lbResult.Location = new System.Drawing.Point(571, 103);
+            this.lbResult.Name = "lbResult";
+            this.lbResult.Size = new System.Drawing.Size(41, 12);
+            this.lbResult.TabIndex = 17;
+            this.lbResult.Text = "label6";
+            // 
+            // txtResult
+            // 
+            this.txtResult.Location = new System.Drawing.Point(500, 127);
+            this.txtResult.Name = "txtResult";
+            this.txtResult.Size = new System.Drawing.Size(266, 267);
+            this.txtResult.TabIndex = 19;
+            this.txtResult.Text = "";
+            // 
             // FrmTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 423);
+            this.ClientSize = new System.Drawing.Size(800, 423);
+            this.Controls.Add(this.txtResult);
+            this.Controls.Add(this.lbResult);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtUrl);
+            this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.lbTime);
@@ -208,5 +261,10 @@
         private System.Windows.Forms.Label lbTime;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnRequest;
+        private System.Windows.Forms.TextBox txtUrl;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbResult;
+        private System.Windows.Forms.RichTextBox txtResult;
     }
 }

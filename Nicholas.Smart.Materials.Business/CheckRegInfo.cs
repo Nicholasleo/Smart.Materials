@@ -9,7 +9,7 @@ namespace Nicholas.Smart.Materials.Business
         {
         }
 
-        public static string LocalKey = GetSystemInfo.getMacAddr_Local() + GetSystemInfo.GetCpuID() + GetSystemInfo.GetMotherBoardID();
+        public static string LocalKey = GetSystemInfo.GetDiskID() + GetSystemInfo.GetCpuID() + GetSystemInfo.GetMotherBoardID();
        
         public static string AesLocalKey = AES.AesEncrypt(LocalKey, "NicholasLeo", "13158985896zhuzc");
 

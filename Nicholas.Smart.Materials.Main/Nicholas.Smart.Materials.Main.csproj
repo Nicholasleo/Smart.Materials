@@ -314,48 +314,16 @@
     <Compile Include="FrmMainDev.Designer.cs">
       <DependentUpon>FrmMainDev.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmProfile.Designer.cs">
-      <DependentUpon>FrmProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmRegister.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRegister.Designer.cs">
-      <DependentUpon>FrmRegister.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmResult.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmResult.Designer.cs">
       <DependentUpon>FrmResult.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSetting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSetting.Designer.cs">
-      <DependentUpon>FrmSetting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainProfileOperator.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManualOperation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MyDataGridView.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="MyDataGridView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="..\DLL\Version.cs">
       <Link>Properties\Version.cs</Link>
-    </Compile>
-    <Compile Include="FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="ReadOnlyTextBox.cs">
@@ -415,20 +383,8 @@
     <EmbeddedResource Include="UIBase\FrmBasicDev.resx">
       <DependentUpon>FrmBasicDev.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmProfile.resx">
-      <DependentUpon>FrmProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegister.resx">
-      <DependentUpon>FrmRegister.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmResult.resx">
       <DependentUpon>FrmResult.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSetting.resx">
-      <DependentUpon>FrmSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -560,6 +516,7 @@
     <Content Include="PiEncrypt.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\import.png" />
     <Content Include="Resources\load.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

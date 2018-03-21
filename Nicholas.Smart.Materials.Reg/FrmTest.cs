@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -75,6 +77,18 @@ namespace Nicholas.Smart.Materials.Reg
             DateTime endTime = Convert.ToDateTime("2018-03-02 23:59:59");
             TimeSpan endTs = new TimeSpan(endTime.Ticks);
             label4.Text = endTs.Subtract(nowTs).TotalSeconds.ToString();
+        }
+        private string PageUrl = ""; 
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            PageUrl = txtUrl.Text;
+            WebRequest request = WebRequest.Create(PageUrl);
+            WebResponse response = request.GetResponse();
+            Stream resStream = response.GetResponseStream();
+            StreamReader sr = new StreamReader(resStream, System.Text.Encoding.Default);
+            txtResult.Text = sr.ReadToEnd();
+            resStream.Close();
+            sr.Close(); 
         }
     }
 }

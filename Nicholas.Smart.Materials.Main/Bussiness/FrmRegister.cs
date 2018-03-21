@@ -28,6 +28,12 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
         public bool RegSuccess = false;
         private void InitRegInfo()
         {
+            //string test = GetSystemInfo.GetCpuID();
+            //Console.WriteLine(@"CPUID:" + test);
+            //test = GetSystemInfo.GetDiskID();
+            //Console.WriteLine(@"DiskID:" + test);
+            //test = GetSystemInfo.GetMotherBoardID();
+            //Console.WriteLine(@"BoardID:" + test);
             txtRegInfo.Text = CheckRegInfo.AesLocalKey;
         }
         private void btnSelect_Click(object sender, EventArgs e)
