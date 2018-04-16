@@ -57,7 +57,7 @@ namespace Nicholas.Smart.Materials.Business
                     }
                 }
 
-                START:RemoveItem(ref newList,_hasKey);
+            START: RemoveItem(ref newList, _hasKey);
                 total = 0;
                 _hasKey.Clear();
                 if (newList.Count <= 0)

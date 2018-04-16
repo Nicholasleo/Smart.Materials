@@ -395,6 +395,7 @@
     <EmbeddedResource Include="FrmMainDev.resx">
       <DependentUpon>FrmMainDev.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UIBase\FrmBaseDev.resx">
       <DependentUpon>FrmBaseDev.cs</DependentUpon>
     </EmbeddedResource>

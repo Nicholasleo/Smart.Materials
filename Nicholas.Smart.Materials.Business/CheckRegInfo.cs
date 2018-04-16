@@ -7,6 +7,8 @@ namespace Nicholas.Smart.Materials.Business
 {
     public class CheckRegInfo 
     {
+
+
         public CheckRegInfo()
         {
         }
@@ -18,6 +20,8 @@ namespace Nicholas.Smart.Materials.Business
         public static string RegPath = AppDomain.CurrentDomain.BaseDirectory + "SoftReg.leo";
 
         public static string VersionUrl = @"https://gitee.com/nicholasleo/Materials/raw/master/Version";
+
+        public static string OAuthUrl = @"https://gitee.com/nicholasleo/Materials/raw/master/OAuth";
 
         public static string NowVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
@@ -98,6 +102,34 @@ namespace Nicholas.Smart.Materials.Business
             { 
             }
             
+        }
+
+        public static string GetOAuthInfo()
+        {
+            try
+            {
+                string version = "工业和信息化部备案号【粤ICP备11065058】";
+                WebRequest request = WebRequest.Create(OAuthUrl);
+                WebResponse response = request.GetResponse();
+                Stream resStream = response.GetResponseStream();
+                StreamReader sr = new StreamReader(resStream, System.Text.Encoding.Default);
+                version = sr.ReadToEnd();
+                if (string.IsNullOrEmpty(version))
+                {
+                    version = "工业和信息化部备案号【粤ICP备11065058】";
+                }
+                resStream.Close();
+                sr.Close();
+                return version;
+            }
+            catch (Exception)
+            {
+                return @"工业和信息化部备案号【粤ICP备11065058】";
+            }
+            finally
+            {
+            }
+
         }
 
         public static string GetSoftDue()

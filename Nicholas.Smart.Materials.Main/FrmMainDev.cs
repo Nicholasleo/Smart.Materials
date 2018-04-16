@@ -89,7 +89,6 @@ namespace Nicholas.Smart.Materials.Main
                 }
             }
         }
-        
 
         
         protected override void OnLoad(EventArgs e)
@@ -102,6 +101,7 @@ namespace Nicholas.Smart.Materials.Main
                 delayLoadTimer.Interval = 80;
                 delayLoadTimer.Enabled = true;
                 bsiSetting.Caption = @"当前系统计算的板宽为：【" + BaseFunction.Area + @"mm】";
+                barStaticItem2.Caption = CheckRegInfo.GetOAuthInfo();
                 if (!File.Exists(imageConfig))
                 {
                     XmlHelper.CreateImageXml(imageConfig);
@@ -171,7 +171,7 @@ namespace Nicholas.Smart.Materials.Main
         }
         #endregion
 
-
+       
 
         private void btn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

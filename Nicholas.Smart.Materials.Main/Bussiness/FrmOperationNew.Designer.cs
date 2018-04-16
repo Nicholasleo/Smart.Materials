@@ -33,10 +33,10 @@
             this.gvSource = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Length = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Qty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Profile = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemPictureEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.SArea = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SDepth = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Profile = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemPictureEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.SPath = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcMain = new DevExpress.XtraGrid.GridControl();
             this.gvMain = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -122,7 +122,7 @@
             this.Length.FieldName = "Length";
             this.Length.Name = "Length";
             this.Length.Visible = true;
-            this.Length.VisibleIndex = 2;
+            this.Length.VisibleIndex = 0;
             // 
             // Qty
             // 
@@ -132,7 +132,23 @@
             this.Qty.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Qty", "合计={0:0.##}")});
             this.Qty.Visible = true;
-            this.Qty.VisibleIndex = 0;
+            this.Qty.VisibleIndex = 1;
+            // 
+            // SArea
+            // 
+            this.SArea.Caption = "展开面积";
+            this.SArea.FieldName = "SArea";
+            this.SArea.Name = "SArea";
+            this.SArea.Visible = true;
+            this.SArea.VisibleIndex = 2;
+            // 
+            // SDepth
+            // 
+            this.SDepth.Caption = "型材厚度";
+            this.SDepth.FieldName = "SDepth";
+            this.SDepth.Name = "SDepth";
+            this.SDepth.Visible = true;
+            this.SDepth.VisibleIndex = 3;
             // 
             // Profile
             // 
@@ -148,23 +164,8 @@
             // repositoryItemPictureEdit2
             // 
             this.repositoryItemPictureEdit2.Name = "repositoryItemPictureEdit2";
+            this.repositoryItemPictureEdit2.NullText = "无图片";
             this.repositoryItemPictureEdit2.ZoomPercent = 30D;
-            // 
-            // SArea
-            // 
-            this.SArea.Caption = "展开面积";
-            this.SArea.FieldName = "SArea";
-            this.SArea.Name = "SArea";
-            this.SArea.Visible = true;
-            this.SArea.VisibleIndex = 1;
-            // 
-            // SDepth
-            // 
-            this.SDepth.Caption = "型材厚度";
-            this.SDepth.FieldName = "SDepth";
-            this.SDepth.Name = "SDepth";
-            this.SDepth.Visible = true;
-            this.SDepth.VisibleIndex = 3;
             // 
             // SPath
             // 
@@ -240,6 +241,7 @@
             // repositoryItemPictureEdit1
             // 
             this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
+            this.repositoryItemPictureEdit1.NullText = "无图片";
             this.repositoryItemPictureEdit1.ZoomPercent = 30D;
             // 
             // Depth
