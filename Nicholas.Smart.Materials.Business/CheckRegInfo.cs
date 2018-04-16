@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Net;
+using System.Reflection;
 
 namespace Nicholas.Smart.Materials.Business
 {
@@ -15,6 +17,9 @@ namespace Nicholas.Smart.Materials.Business
 
         public static string RegPath = AppDomain.CurrentDomain.BaseDirectory + "SoftReg.leo";
 
+        public static string VersionUrl = @"https://gitee.com/nicholasleo/Materials/raw/master/Version";
+
+        public static string NowVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
         public static string GetSoftRegFlg()
         {
@@ -51,6 +56,49 @@ namespace Nicholas.Smart.Materials.Business
             return Convert.ToInt32(times);
         }
 
+        public static bool IsNewVersion()
+        {
+            string[] n = GetNewVersionInfo().Split('.');
+
+            string[] m = NowVersion.Split('.');
+
+            for (int i = 0; i < n.Length; i++)
+            {
+                if (Convert.ToInt32(m[i]) >= Convert.ToInt32(n[i]))
+                {
+                    continue;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public static string GetNewVersionInfo()
+        {
+            try
+            {
+                string version = "0.0.0.0";
+                WebRequest request = WebRequest.Create(VersionUrl);
+                WebResponse response = request.GetResponse();
+                Stream resStream = response.GetResponseStream();
+                StreamReader sr = new StreamReader(resStream, System.Text.Encoding.Default);
+                version = sr.ReadToEnd();
+                resStream.Close();
+                sr.Close();
+                return version;
+            }
+            catch (Exception)
+            {
+                return @"无法获取到最新版本信息，请检查网络是否连接正常！";
+            }
+            finally
+            { 
+            }
+            
+        }
 
         public static string GetSoftDue()
         {   //HrejADlG4nA= NoDue

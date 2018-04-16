@@ -85,6 +85,7 @@ namespace Nicholas.Smart.Materials.Business
                             tEnt.Length = item.MyEnt.Length;
                             tEnt.Area = item.MyEnt.Area;
                             tEnt.Depth = item.MyEnt.Depth;
+                            tEnt.Path = item.MyEnt.Path;
                             tEnt.Qty = i;
 
                             Ent2 tEnt2 = new Ent2();
@@ -105,6 +106,7 @@ namespace Nicholas.Smart.Materials.Business
                             tEnt.Area = item.MyEnt.Area;
                             tEnt.Qty = item.MyEnt.Qty;
                             tEnt.Depth = item.MyEnt.Depth;
+                            tEnt.Path = item.MyEnt.Path;
 
                             Ent2 tEnt2 = new Ent2();
                             tEnt2.Key = "BC" + _index;
@@ -120,6 +122,7 @@ namespace Nicholas.Smart.Materials.Business
                             tEnt.Area = item.MyEnt.Area;
                             tEnt.Qty = i;
                             tEnt.Depth = item.MyEnt.Depth;
+                            tEnt.Path = item.MyEnt.Path;
 
                             Ent2 tEnt2 = new Ent2();
                             tEnt2.Key = "BC" + _index;
@@ -139,6 +142,7 @@ namespace Nicholas.Smart.Materials.Business
                                 tEnt.Length = item.MyEnt.Length;
                                 tEnt.Area = item.MyEnt.Area;
                                 tEnt.Depth = item.MyEnt.Depth;
+                                tEnt.Path = item.MyEnt.Path;
                                 tEnt.Qty = (i - 1);
 
                                 Ent2 tEnt2 = new Ent2();
@@ -158,6 +162,7 @@ namespace Nicholas.Smart.Materials.Business
                                 tEnt.Length = item.MyEnt.Length;
                                 tEnt.Area = item.MyEnt.Area;
                                 tEnt.Depth = item.MyEnt.Depth;
+                                tEnt.Path = item.MyEnt.Path;
                                 tEnt.Qty = (i - 1);
 
                                 Ent2 tEnt2 = new Ent2();

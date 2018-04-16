@@ -276,7 +276,7 @@
                   <CellContents>
                     <Image Name="Image1">
                       <Source>External</Source>
-                      <Value>="file:///" &amp; Fields!Key1.Value</Value>
+                      <Value>="file:///" &amp; Fields!Path.Value</Value>
                       <Sizing>Fit</Sizing>
                       <Style>
                         <Border>
@@ -284,6 +284,7 @@
                         </Border>
                       </Style>
                     </Image>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -1128,8 +1129,8 @@
           <DataField>Key</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Key1">
-          <DataField>Key1</DataField>
+        <Field Name="Path">
+          <DataField>Path</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Length">

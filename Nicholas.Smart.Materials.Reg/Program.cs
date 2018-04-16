@@ -16,8 +16,8 @@ namespace Nicholas.Smart.Materials.Reg
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FrmReg());
-            Application.Run(new FrmTest());
+            Application.Run(new FrmReg());
+            //Application.Run(new FrmTest());
         }
     }
 }

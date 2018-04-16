@@ -45,6 +45,7 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.popupMenu2 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.btnOperatorNew = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu2)).BeginInit();
@@ -64,9 +65,10 @@
             this.btnSetting,
             this.btnUpdate,
             this.bsiSetting,
-            this.btnRegsiter});
+            this.btnRegsiter,
+            this.btnOperatorNew});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 20;
+            this.ribbon.MaxItemId = 21;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.bsiSetting);
             this.ribbon.PageHeaderItemLinks.Add(this.ribbon.ExpandCollapseItem);
@@ -159,6 +161,7 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnOperatorMaterials);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnOperatorNew);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnProfile);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "排料功能";
@@ -184,6 +187,16 @@
             // 
             this.popupMenu2.Name = "popupMenu2";
             this.popupMenu2.Ribbon = this.ribbon;
+            // 
+            // btnOperatorNew
+            // 
+            this.btnOperatorNew.Caption = "排料功能（新）";
+            this.btnOperatorNew.Glyph = ((System.Drawing.Image)(resources.GetObject("btnOperatorNew.Glyph")));
+            this.btnOperatorNew.Id = 20;
+            this.btnOperatorNew.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnOperatorNew.LargeGlyph")));
+            this.btnOperatorNew.Name = "btnOperatorNew";
+            this.btnOperatorNew.Tag = "Nicholas.Smart.Materials.Main.Bussiness.FrmOperationNew";
+            this.btnOperatorNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_ItemClick);
             // 
             // FrmMainDev
             // 
@@ -225,6 +238,7 @@
         private DevExpress.XtraBars.BarButtonItem btnUpdate;
         private DevExpress.XtraBars.BarStaticItem bsiSetting;
         private DevExpress.XtraBars.BarButtonItem btnRegsiter;
+        private DevExpress.XtraBars.BarButtonItem btnOperatorNew;
 
 
     }

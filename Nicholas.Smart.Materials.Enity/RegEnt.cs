@@ -11,8 +11,10 @@ namespace Nicholas.Smart.Materials
 
     public class MaterialsData
     {
+        public string Type { get; set; }
         public string Area { get; set; }
         public string Path { get; set; }
+        public string Depth { get; set; }
     }
 
     public class SystemRegInfo

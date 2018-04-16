@@ -52,6 +52,10 @@ namespace Nicholas.Smart.Materials.Main
         {
             Application.EnableVisualStyles();
             Application.DoEvents();
+            if (!CheckRegInfo.IsNewVersion())
+            {
+                MessageBox.Show(@"当前系统版本不是最新版本！");
+            }
 #if DEBUG
             StartFrmMain();
             return;

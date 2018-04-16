@@ -227,6 +227,12 @@
     <Compile Include="Bussiness\FrmEditPofile.Designer.cs">
       <DependentUpon>FrmEditPofile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bussiness\FrmOperationNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bussiness\FrmOperationNew.Designer.cs">
+      <DependentUpon>FrmOperationNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bussiness\FrmOperation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +244,12 @@
     </Compile>
     <Compile Include="Bussiness\FrmProfile.Designer.cs">
       <DependentUpon>FrmProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bussiness\FrmProfileType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bussiness\FrmProfileType.Designer.cs">
+      <DependentUpon>FrmProfileType.cs</DependentUpon>
     </Compile>
     <Compile Include="Bussiness\FrmRegister.cs">
       <SubType>Form</SubType>
@@ -344,11 +356,17 @@
     <EmbeddedResource Include="Bussiness\FrmEditPofile.resx">
       <DependentUpon>FrmEditPofile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bussiness\FrmOperationNew.resx">
+      <DependentUpon>FrmOperationNew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bussiness\FrmOperation.resx">
       <DependentUpon>FrmOperation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bussiness\FrmProfile.resx">
       <DependentUpon>FrmProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bussiness\FrmProfileType.resx">
+      <DependentUpon>FrmProfileType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bussiness\FrmRegister.resx">
       <DependentUpon>FrmRegister.cs</DependentUpon>

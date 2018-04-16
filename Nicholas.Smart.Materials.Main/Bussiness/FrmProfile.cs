@@ -9,6 +9,8 @@ using System.Text;
 using System.Windows.Forms;
 using Nicholas.Smart.Materials.Business;
 using Nicholas.Smart.Materials.Main.ControlDef;
+using System.Net;
+using System.Text.RegularExpressions;
 
 namespace Nicholas.Smart.Materials.Main.Bussiness
 {
@@ -17,6 +19,9 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
         public FrmProfile()
         {
             InitializeComponent();
+
+            gvMain.OptionsView.RowAutoHeight = true;
+            gvMain.OptionsView.ColumnAutoWidth = true;
         }
 
         protected override void OnShown(EventArgs e)
@@ -61,18 +66,21 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
 
         private void BindDgvMain(List<MaterialsData> list)
         {
-            dgvMain.Rows.Clear();
-            dgvMain.DataSource = null;
-            if (list.Count > 0)
-            {
-                dgvMain.Rows.Add(list.Count);
-                for (int i = 0; i < list.Count; i++)
-                {
-                    dgvMain.Rows[i].Cells[0].Value = list[i].Area;
-                    dgvMain.Rows[i].Cells[1].Value = list[i].Path;
-                    dgvMain.Rows[i].Cells[2].Value = ControlFunction.GetFileImage(list[i].Path);
-                }
-            }
+            gcMain.DataSource = list;
+            //dgvMain.Rows.Clear();
+            //dgvMain.DataSource = null;
+            //if (list.Count > 0)
+            //{
+            //    dgvMain.Rows.Add(list.Count);
+            //    for (int i = 0; i < list.Count; i++)
+            //    {
+            //        dgvMain.Rows[i].Cells[0].Value = list[i].Type;
+            //        dgvMain.Rows[i].Cells[1].Value = list[i].Area;
+            //        dgvMain.Rows[i].Cells[2].Value = list[i].Path;
+            //        dgvMain.Rows[i].Cells[3].Value = ControlFunction.GetFileImage(list[i].Path);
+            //        dgvMain.Rows[i].Cells[4].Value = list[i].Depth;
+            //    }
+            //}
         }
 
         protected override void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -95,34 +103,35 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
         {
             try
             {
-                if (dgvMain.CurrentRow == null)
+                int index = gvMain.FocusedRowHandle;
+                if (index <= -1)
                 {
                     MessageBox.Show(@"请选择需要删除的型材！", @"错误", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                     return;
                 }
-                int iCount = dgvMain.CurrentRow.Index;
                 if (DialogResult.Yes ==
                     MessageBox.Show(@"是否删除选中的型材数据？", @"提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
                 {
-                    string key = dgvMain.CurrentRow.Cells[0].Value.ToString();
                     MaterialsNode mNode = new MaterialsNode();
                     mNode.RNode = "Materials";
                     mNode.PNodeAttr = "key";
-                    mNode.PNodeNewValue = key;
+                    mNode.PNodeNewValue = this.gvMain.GetFocusedRowCellValue("Area").ToString();
+                    string filename = this.gvMain.GetFocusedRowCellValue("Path").ToString();
+
+                    this.gvMain.DeleteRow(index);
                     if (PiEncryptHelper.IsFileEnc(imageConfig, ref nKeyID))
                     {
                         PiEncryptHelper.DecFile(imageConfig);
                     }
                     XmlHelper.Delete(imageConfig, mNode);
                     PiEncryptHelper.EncFile(imageConfig);
-                    //XmlHelper.Delete(AppDomain.CurrentDomain.BaseDirectory + "ImageConfig.xml","/Key_"+key,"");
-                    string path = dgvMain.CurrentRow.Cells[1].Value.ToString();
-                    if (File.Exists(path))
+                    if (File.Exists(filename))
                     {
-                        File.Delete(path);
+                        File.SetAttributes(filename, FileAttributes.Normal);  
+
+                        File.Delete(filename);
                     }
-                    dgvMain.Rows.RemoveAt(iCount);
                 }
 
             }
@@ -130,6 +139,37 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
             {
                 MessageBox.Show(ex.Message, @"错误", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+            }
+        }
+
+        private void gvMain_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            if (e.Column.FieldName == "Image" && e.IsGetData)
+            {
+                //RefImage是存储图片路径的那一列  
+                string filePath = ((MaterialsData)e.Row).Path;
+                Image img = null;
+                FileStream iStream = null;
+                try
+                {
+                    if (LocalFileExists(filePath))
+                    {
+                        iStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                        //加载本地图片  
+                        img = new Bitmap(iStream);
+                    }
+                    //pictureEdit列绑定图片  
+                    e.Value = img;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    if(iStream != null)
+                        iStream.Dispose();
+                }
             }
         }
 
@@ -145,85 +185,10 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
             //            AsyncWaitForm.Instance.SetMsgAndProgress(100);
 
             //        });
-            AsyncWaitForm.Instance.AsyncShow("开始导入型材", "正在导入型材",
-                    delegate(AsyncWaitForm exfrm)
-                    {
-                        exfrm.SetMsgAndProgress("导入型材", 10);
-                        if (!File.Exists(imageConfig))
-                        {
-                            XmlHelper.CreateImageXml(imageConfig);
-                            PiEncryptHelper.EncFile(imageConfig);
-                        }
-
-                        if (PiEncryptHelper.IsFileEnc(imageConfig, ref nKeyID)) ;
-                        {
-                            PiEncryptHelper.DecFile(imageConfig);
-                        }
-                        OpenFileDialog ofd = new OpenFileDialog();
-                        //ofd.Filter = @"图像文件(*.jpg;*.jpg;*.jpeg;*.gif;*.png)|*.jpg;*.jpeg;*.gif;*.png";
-                        ofd.Filter = @"图像文件(*.png)|*.png";
-                        ofd.Multiselect = true;
-                        ofd.Title = @"请选择文件";
-                        ofd.RestoreDirectory = true;
-
-                        MaterialsNode mNode = new MaterialsNode();
-                        mNode.CNode = new string[2];
-                        mNode.CNodeValue = new string[2];
-                        if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "MaterialsImg"))
-                        {
-                            Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "MaterialsImg");
-                        }
-                        if (ofd.ShowDialog() == DialogResult.OK)
-                        {
-                            foreach (var item in ofd.SafeFileNames)
-                            {
-                                string filename = AppDomain.CurrentDomain.BaseDirectory + "MaterialsImg\\" +
-                                                  item;
-                                if (File.Exists(filename))
-                                {
-                                    MessageBox.Show(string.Format("【{0}】型材已经存在！", item.Replace(".png", "")));
-                                    return;
-                                }
-                            }
-                            for (int i = 0; i < ofd.FileNames.Length; i++)
-                            {
-                                string filePath = AppDomain.CurrentDomain.BaseDirectory + "MaterialsImg\\" +
-                                                  ofd.SafeFileNames[i];
-                                if (File.Exists(filePath))
-                                {
-                                    MessageBox.Show(string.Format("【{0}】型材已经存在！", ofd.SafeFileNames[i].Replace(".png", "")));
-                                    return;
-                                }
-                                if (File.Exists(filePath))
-                                {
-                                    XmlHelper.Update(imageConfig, "Image//Key_" + ofd.SafeFileNames[i].Replace(".png", ""), "Path", filePath);
-                                }
-                                else
-                                {
-                                    mNode.RNode = "Materials";
-                                    mNode.PNode = "Image";
-                                    mNode.PNodeAttr = "key";
-                                    mNode.PNodeValue = ofd.SafeFileNames[i].Replace(".png", "");
-                                    mNode.CNode[0] = "Value";
-                                    mNode.CNodeValue[0] = ofd.SafeFileNames[i].Replace(".png", "");
-                                    mNode.CNode[1] = "Path";
-                                    mNode.CNodeValue[1] = filePath;
-                                    //XmlHelper.Insert(xmlPath, "Image", "Key_" + ofd.SafeFileNames[i].Replace(".png", ""), "Path",
-                                    //    filePath);
-                                    XmlHelper.Insert(imageConfig, mNode);
-                                }
-                                File.Copy(ofd.FileNames[i], filePath, true);
-                            }
-
-                            //XmlHelper.Insert();
-                        }
-                        exfrm.SetMsgAndProgress("导入完成", 90);
-                        PiEncryptHelper.EncFile(imageConfig);
-                    }, delegate
-                    {
-                        LoadData();
-                        AsyncWaitForm.Instance.SetMsgAndProgress(100);
-                    });
+            var frm = new FrmProfileType();
+            if(frm.ShowDialog() == DialogResult.OK)
+                LoadData();
+            frm.Dispose();
         }
 
         protected override void btnImport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -241,12 +206,7 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
                         {
                             File.Delete(imageConfig);
                         }
-
-                        string[] files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "MaterialsImg");
-                        foreach (var file in files)
-                        {
-                            File.Delete(file);
-                        }
+                        DelectDir(AppDomain.CurrentDomain.BaseDirectory + "MaterialsImg");
                         exfrm.SetMsgAndProgress("清空型材完成", 90);
                     }, delegate
                     {
@@ -259,6 +219,101 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, @"错误",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DelectDir(string srcPath)
+        {
+            try
+            {
+                DirectoryInfo dir = new DirectoryInfo(srcPath);
+                FileSystemInfo[] fileinfo = dir.GetFileSystemInfos();  //返回目录中所有文件和子目录
+                foreach (FileSystemInfo i in fileinfo)
+                {
+                    if (i is DirectoryInfo)            //判断是否文件夹
+                    {
+                        DirectoryInfo subdir = new DirectoryInfo(i.FullName);
+                        subdir.Delete(true);          //删除子目录和文件
+                    }
+                    else
+                    {
+                        File.Delete(i.FullName);      //删除指定文件
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>  
+        /// 判断远程文件是否存在  
+        /// </summary>  
+        /// <param name="fileUrl"></param>  
+        /// <returns></returns>  
+        public bool RemoteFileExists(string fileUrl)
+        {
+            HttpWebRequest re = null;
+            HttpWebResponse res = null;
+            try
+            {
+                re = (HttpWebRequest)WebRequest.Create(fileUrl);
+                res = (HttpWebResponse)re.GetResponse();
+                if (res.ContentLength != 0)
+                {
+                    //MessageBox.Show("文件存在");  
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show("无此文件");  
+                return false;
+            }
+            finally
+            {
+                if (re != null)
+                {
+                    re.Abort();//销毁关闭连接  
+                }
+                if (res != null)
+                {
+                    res.Close();//销毁关闭响应  
+                }
+            }
+            return false;
+        }
+        /// <summary>  
+        /// 判断本地文件是否存在  
+        /// </summary>  
+        /// <param name="path"></param>  
+        /// <returns></returns>  
+        public bool LocalFileExists(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /// <summary>  
+        /// 识别urlStr是否是网络路径  
+        /// </summary>  
+        /// <param name="urlStr"></param>  
+        /// <returns></returns>  
+        public bool UrlDiscern(string urlStr)
+        {
+            if (Regex.IsMatch(urlStr, @"((http|ftp|https)://)(([a-zA-Z0-9\._-]+\.[a-zA-Z]{2,6})|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,4})*(/[a-zA-Z0-9\&%_\./-~-]*)?"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

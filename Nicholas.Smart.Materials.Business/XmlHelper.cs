@@ -254,7 +254,15 @@ namespace Nicholas.Smart.Materials.Business
                         {
                             data.Path = x.InnerText;
                         }
-                        Console.WriteLine(xn2.InnerText);//显示子节点点文本   
+                        if (x.Name == "Type")
+                        {
+                            data.Type = x.InnerText;
+                        }
+                        if (x.Name == "Depth")
+                        {
+                            data.Depth = x.InnerText;
+                        }
+                        //Console.WriteLine(xn2.InnerText);//显示子节点点文本   
                     }  
                     list.Add(data);
                 }

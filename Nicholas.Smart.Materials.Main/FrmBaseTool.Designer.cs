@@ -57,7 +57,7 @@
             this.btnAdd,
             this.btnEdit,
             this.btnImport});
-            this.barManager1.MaxItemId = 4;
+            this.barManager1.MaxItemId = 7;
             // 
             // bar1
             // 
@@ -116,22 +116,22 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 365);
-            this.barDockControlBottom.Size = new System.Drawing.Size(690, 23);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 388);
+            this.barDockControlBottom.Size = new System.Drawing.Size(690, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 334);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 357);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(690, 31);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 334);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 357);
             // 
             // FrmBaseTool
             // 

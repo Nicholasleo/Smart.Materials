@@ -14,6 +14,7 @@ namespace Nicholas.Smart.Materials.Main
         public FrmBaseTool()
         {
             InitializeComponent();
+            
         }
 
         protected virtual void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
