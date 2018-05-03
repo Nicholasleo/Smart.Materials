@@ -649,3 +649,5 @@ ASALocalRun/
 #Ignore encrypt file
 *.pcl
 *.pky
+PiEncrypt.dll
+
