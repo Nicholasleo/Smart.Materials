@@ -68,7 +68,7 @@ namespace Nicholas.Smart.Materials.Business
 
                 string[] m = NowVersion.Split('.');
 
-                for (int i = 0; i < n.Length; i++)
+                for (int i = 0; i < n.Length-1; i++)
                 {
                     if (Convert.ToInt32(m[i]) >= Convert.ToInt32(n[i]))
                     {
