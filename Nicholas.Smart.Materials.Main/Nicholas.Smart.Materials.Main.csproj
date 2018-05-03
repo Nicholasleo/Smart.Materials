@@ -395,7 +395,6 @@
     <EmbeddedResource Include="FrmMainDev.resx">
       <DependentUpon>FrmMainDev.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UIBase\FrmBaseDev.resx">
       <DependentUpon>FrmBaseDev.cs</DependentUpon>
     </EmbeddedResource>
@@ -551,9 +550,6 @@
     </Content>
     <Content Include="Resources\主界面背景.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SmartMaterials.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\add.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

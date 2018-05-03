@@ -137,7 +137,7 @@
             // SArea
             // 
             this.SArea.Caption = "展开面积";
-            this.SArea.FieldName = "SArea";
+            this.SArea.FieldName = "Area";
             this.SArea.Name = "SArea";
             this.SArea.Visible = true;
             this.SArea.VisibleIndex = 2;
@@ -145,7 +145,7 @@
             // SDepth
             // 
             this.SDepth.Caption = "型材厚度";
-            this.SDepth.FieldName = "SDepth";
+            this.SDepth.FieldName = "Depth";
             this.SDepth.Name = "SDepth";
             this.SDepth.Visible = true;
             this.SDepth.VisibleIndex = 3;
@@ -170,7 +170,7 @@
             // SPath
             // 
             this.SPath.Caption = "路径";
-            this.SPath.FieldName = "SPath";
+            this.SPath.FieldName = "Path";
             this.SPath.Name = "SPath";
             // 
             // gcMain

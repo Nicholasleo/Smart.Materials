@@ -147,7 +147,7 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
             if (e.Column.FieldName == "Image" && e.IsGetData)
             {
                 //RefImage是存储图片路径的那一列  
-                string filePath = ((MaterialsData)e.Row).Path;
+                string filePath = AppDomain.CurrentDomain.BaseDirectory + ((MaterialsData)e.Row).Path;
                 Image img = null;
                 FileStream iStream = null;
                 try

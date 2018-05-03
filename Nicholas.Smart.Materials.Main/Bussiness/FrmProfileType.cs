@@ -113,6 +113,7 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
                         mNode.CNode = new string[4];
                         mNode.CNodeValue = new string[4];
                         string path = AppDomain.CurrentDomain.BaseDirectory + "MaterialsImg\\" + lueType.Text + "\\";
+
                         if (!Directory.Exists(path))
                         {
                             Directory.CreateDirectory(path);
@@ -136,6 +137,7 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
                             for (int i = 0; i < ofd.FileNames.Length; i++)
                             {
                                 string filePath = path + ofd.SafeFileNames[i].ToLower();
+                                string truePath = "MaterialsImg\\" + lueType.Text + "\\" + ofd.SafeFileNames[i].ToLower();
                                 if (File.Exists(filePath))
                                 {
                                     MessageBox.Show(string.Format("【{0}】型材已经存在！", ofd.SafeFileNames[i].ToLower().Replace(".png", "")));
@@ -156,7 +158,7 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
                                     mNode.CNode[1] = "Value";
                                     mNode.CNodeValue[1] = ofd.SafeFileNames[i].ToLower().Replace(".png", "");
                                     mNode.CNode[2] = "Path";
-                                    mNode.CNodeValue[2] = filePath;
+                                    mNode.CNodeValue[2] = truePath;
                                     mNode.CNode[3] = "Depth";
                                     mNode.CNodeValue[3] = txtDepth.Text;
                                     //XmlHelper.Insert(xmlPath, "Image", "Key_" + ofd.SafeFileNames[i].Replace(".png", ""), "Path",

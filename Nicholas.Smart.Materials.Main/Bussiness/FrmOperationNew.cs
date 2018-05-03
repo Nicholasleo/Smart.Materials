@@ -72,180 +72,180 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
             dc.DataType = System.Type.GetType("System.Object");
             dtSource.Columns.Add(dc);
             dc = new DataColumn();
-            dc.ColumnName = "SArea";
+            dc.ColumnName = "Area";
             dc.DataType = System.Type.GetType("System.Int32");
             dtSource.Columns.Add(dc);
             dc = new DataColumn();
-            dc.ColumnName = "SDepth";
+            dc.ColumnName = "Depth";
             dc.DataType = System.Type.GetType("System.String");
             dtSource.Columns.Add(dc);
             dc = new DataColumn();
-            dc.ColumnName = "SPath";
+            dc.ColumnName = "Path";
             dc.DataType = System.Type.GetType("System.String");
             dtSource.Columns.Add(dc);
 #if DEBUG
             DataRow newRow;
             newRow = dtSource.NewRow();
             newRow["Length"] = 2840;
-            newRow["SArea"] = 68;
+            newRow["Area"] = 68;
             newRow["Qty"] = 3;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2740;
-            newRow["SArea"] = 130;
+            newRow["Area"] = 130;
             newRow["Qty"] = 2;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2420;
-            newRow["SArea"] = 85;
+            newRow["Area"] = 85;
             newRow["Qty"] = 2;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2420;
-            newRow["SArea"] = 56;
+            newRow["Area"] = 56;
             newRow["Qty"] = 2;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2420;
-            newRow["SArea"] = 119;
+            newRow["Area"] = 119;
             newRow["Qty"] = 2;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2420;
-            newRow["SArea"] = 181;
+            newRow["Area"] = 181;
             newRow["Qty"] = 2;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2370;
-            newRow["SArea"] = 120;
+            newRow["Area"] = 120;
             newRow["Qty"] = 2;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2370;
-            newRow["SArea"] = 180;
+            newRow["Area"] = 180;
             newRow["Qty"] = 2;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2420;
-            newRow["SArea"] = 197;
+            newRow["Area"] = 197;
             newRow["Qty"] = 2;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2370;
-            newRow["SArea"] = 172;
+            newRow["Area"] = 172;
             newRow["Qty"] = 2;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2370;
-            newRow["SArea"] = 218;
+            newRow["Area"] = 218;
             newRow["Qty"] = 2;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2370;
-            newRow["SArea"] = 389;
+            newRow["Area"] = 389;
             newRow["Qty"] = 2;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2390;
-            newRow["SArea"] = 180;
+            newRow["Area"] = 180;
             newRow["Qty"] = 2;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2390;
-            newRow["SArea"] = 216;
+            newRow["Area"] = 216;
             newRow["Qty"] = 2;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2390;
-            newRow["SArea"] = 395;
+            newRow["Area"] = 395;
             newRow["Qty"] = 1;
             dtSource.Rows.Add(newRow);
 
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 2390;
-            newRow["SArea"] = 395;
-            newRow["Qty"] = 1;
-            dtSource.Rows.Add(newRow);
-
-
-            newRow = dtSource.NewRow();
-            newRow["Length"] = 3400;
-            newRow["SArea"] = 169;
+            newRow["Area"] = 395;
             newRow["Qty"] = 1;
             dtSource.Rows.Add(newRow);
 
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 3400;
-            newRow["SArea"] = 225;
+            newRow["Area"] = 169;
+            newRow["Qty"] = 1;
+            dtSource.Rows.Add(newRow);
+
+
+            newRow = dtSource.NewRow();
+            newRow["Length"] = 3400;
+            newRow["Area"] = 225;
             newRow["Qty"] = 1;
             dtSource.Rows.Add(newRow);
 
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 1800;
-            newRow["SArea"] = 250;
+            newRow["Area"] = 250;
             newRow["Qty"] = 4;
             dtSource.Rows.Add(newRow);
 
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 1860;
-            newRow["SArea"] = 258;
+            newRow["Area"] = 258;
             newRow["Qty"] = 3;
             dtSource.Rows.Add(newRow);
 
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 1860;
-            newRow["SArea"] = 78;
+            newRow["Area"] = 78;
             newRow["Qty"] = 5;
             dtSource.Rows.Add(newRow);
 
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 1800;
-            newRow["SArea"] = 128;
+            newRow["Area"] = 128;
             newRow["Qty"] = 1;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 1620;
-            newRow["SArea"] = 34;
+            newRow["Area"] = 34;
             newRow["Qty"] = 6;
             dtSource.Rows.Add(newRow);
 
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 1620;
-            newRow["SArea"] = 63;
+            newRow["Area"] = 63;
             newRow["Qty"] = 6;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 1620;
-            newRow["SArea"] = 46;
+            newRow["Area"] = 46;
             newRow["Qty"] = 6;
             dtSource.Rows.Add(newRow);
 
             newRow = dtSource.NewRow();
             newRow["Length"] = 1800;
-            newRow["SArea"] = 197;
+            newRow["Area"] = 197;
             newRow["Qty"] = 1;
             dtSource.Rows.Add(newRow);
 #endif
@@ -371,9 +371,9 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
 
                     int.TryParse(this.gvSource.GetRowCellValue(i, gvSource.Columns["Length"]) == null ? "0" : this.gvSource.GetRowCellValue(i, gvSource.Columns["Length"]).ToString(), out length);
                     int.TryParse(this.gvSource.GetRowCellValue(i, gvSource.Columns["Qty"]) == null ? "0" : this.gvSource.GetRowCellValue(i, gvSource.Columns["Qty"]).ToString(), out qty);
-                    int.TryParse(this.gvSource.GetRowCellValue(i, gvSource.Columns["SArea"]) == null ? "0" : this.gvSource.GetRowCellValue(i, gvSource.Columns["SArea"]).ToString(), out area);
-                    string depth = Convert.ToString(this.gvSource.GetRowCellValue(i,gvSource.Columns["SDepth"]));
-                    string fPath = Convert.ToString(this.gvSource.GetRowCellValue(i, gvSource.Columns["SPath"]));
+                    int.TryParse(this.gvSource.GetRowCellValue(i, gvSource.Columns["Area"]) == null ? "0" : this.gvSource.GetRowCellValue(i, gvSource.Columns["Area"]).ToString(), out area);
+                    string depth = Convert.ToString(this.gvSource.GetRowCellValue(i,gvSource.Columns["Depth"]));
+                    string fPath = Convert.ToString(this.gvSource.GetRowCellValue(i, gvSource.Columns["Path"]));
                     ent1.Length = length;
                     ent1.Area = area;
                     ent1.Qty = qty;
@@ -454,7 +454,7 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
                         newRow["Qty"] = ent2.MyEnt.Qty;
                         newRow["Area"] = ent2.MyEnt.Area;
                         newRow["Depth"] = ent2.MyEnt.Depth;
-                        newRow["Path"] = ent2.MyEnt.Path;
+                        newRow["Path"] = string.IsNullOrEmpty(ent2.MyEnt.Path) ? ent2.MyEnt.Path : AppDomain.CurrentDomain.BaseDirectory + ent2.MyEnt.Path;
                         ResultTable.Rows.Add(newRow);
                     }
 
@@ -499,7 +499,7 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
             if (e.Column.FieldName == "Image" && e.IsGetData)
             {
                 //RefImage是存储图片路径的那一列  
-                string filePath = ((MaterialsData) e.Row).Path;
+                string filePath = AppDomain.CurrentDomain.BaseDirectory + ((MaterialsData)e.Row).Path;
                 Image img = null;
                 FileStream iStream = null;
                 try
@@ -653,9 +653,9 @@ namespace Nicholas.Smart.Materials.Main.Bussiness
                 return;
             }
             this.gvSource.SetRowCellValue(index, gvSource.Columns["Profile"], System.Drawing.Image.FromFile(data.Path));
-            this.gvSource.SetRowCellValue(index, gvSource.Columns["SArea"], data.Area.Split('-')[0]);
-            this.gvSource.SetRowCellValue(index, gvSource.Columns["SDepth"], data.Depth);
-            this.gvSource.SetRowCellValue(index, gvSource.Columns["SPath"], data.Path);
+            this.gvSource.SetRowCellValue(index, gvSource.Columns["Area"], data.Area.Split('-')[0]);
+            this.gvSource.SetRowCellValue(index, gvSource.Columns["Depth"], data.Depth);
+            this.gvSource.SetRowCellValue(index, gvSource.Columns["Path"], data.Path);
         }
 
         private void FrmOperationNew_FormClosed(object sender, FormClosedEventArgs e)

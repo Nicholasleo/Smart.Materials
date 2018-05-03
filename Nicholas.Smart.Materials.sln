@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicholas.Smart.Materials.DAL", "Nicholas.Smart.Materials.DAL\Nicholas.Smart.Materials.DAL.csproj", "{15209651-4930-44A5-A19C-5FD7EEC69FA3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicholas.Smart.Materials.BLL", "Nicholas.Smart.Materials.BLL\Nicholas.Smart.Materials.BLL.csproj", "{812804CA-A105-4EA1-8E95-188DDF42BFA4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nicholas.Smart.Materials.Main", "Nicholas.Smart.Materials.Main\Nicholas.Smart.Materials.Main.csproj", "{915ACDAF-E8E6-426A-A0C4-946F728BEDCE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{14D43345-A87D-499B-8B3E-6A8DE3809E3B} = {14D43345-A87D-499B-8B3E-6A8DE3809E3B}
@@ -34,14 +30,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{15209651-4930-44A5-A19C-5FD7EEC69FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15209651-4930-44A5-A19C-5FD7EEC69FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15209651-4930-44A5-A19C-5FD7EEC69FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15209651-4930-44A5-A19C-5FD7EEC69FA3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{812804CA-A105-4EA1-8E95-188DDF42BFA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{812804CA-A105-4EA1-8E95-188DDF42BFA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{812804CA-A105-4EA1-8E95-188DDF42BFA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{812804CA-A105-4EA1-8E95-188DDF42BFA4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{915ACDAF-E8E6-426A-A0C4-946F728BEDCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{915ACDAF-E8E6-426A-A0C4-946F728BEDCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{915ACDAF-E8E6-426A-A0C4-946F728BEDCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
