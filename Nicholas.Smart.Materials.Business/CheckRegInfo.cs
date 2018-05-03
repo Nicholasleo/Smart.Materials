@@ -62,20 +62,27 @@ namespace Nicholas.Smart.Materials.Business
 
         public static bool IsNewVersion()
         {
-            string[] n = GetNewVersionInfo().Split('.');
-
-            string[] m = NowVersion.Split('.');
-
-            for (int i = 0; i < n.Length; i++)
+            try
             {
-                if (Convert.ToInt32(m[i]) >= Convert.ToInt32(n[i]))
+                string[] n = GetNewVersionInfo().Split('.');
+
+                string[] m = NowVersion.Split('.');
+
+                for (int i = 0; i < n.Length; i++)
                 {
-                    continue;
+                    if (Convert.ToInt32(m[i]) >= Convert.ToInt32(n[i]))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                else
-                {
-                    return false;
-                }
+            }
+            catch (Exception ex)
+            {
+                return true;
             }
             return true;
         }
@@ -125,9 +132,6 @@ namespace Nicholas.Smart.Materials.Business
             catch (Exception)
             {
                 return @"工业和信息化部备案号【粤ICP备11065058】";
-            }
-            finally
-            {
             }
 
         }
